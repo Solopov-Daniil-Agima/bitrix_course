@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0b540e96-9153-4f69-8a30-4436daf41364" name="Основные технологии и расширение типовых возможностей системы">
+        <fileTransfer rootFolder="/var/www/dsolopov_trainee/data/www/dev1.dsolopov-trainee.de02.agima.ru" accessType="SFTP" host="de02.agima.ru" port="22" sshConfigId="d4e04290-b6c9-4728-8b37-b064b32c342d" sshConfig="dsolopov@de02.agima.ru:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
