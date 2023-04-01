@@ -11,6 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+//dump($arResult);
 ?>
 
 <div class="news-list">
@@ -69,16 +70,21 @@ $this->setFrameMode(true);
 			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
 			</small><br />
 		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<small>
-			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
-				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
-			</small><br />
-		<?endforeach;?>
+        <?
+        if(!empty($arItem['PROPERTIES']['AUTHOR']['VALUE'])):?>
+            <div class="author"> Автор: <?=$arItem['PROPERTIES']['AUTHOR']['AUTHOR_NAME']?>  <?=$arItem['PROPERTIES']['AUTHOR']['AUTHOR_LAST_NAME']?></div>
+
+        <?endif;?>
+<!--		--><?//foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+<!--			<small>-->
+<!--			--><?//=$arProperty["NAME"]?><!--:&nbsp;-->
+<!--			--><?//if(is_array($arProperty["DISPLAY_VALUE"])):?>
+<!--				--><?//=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
+<!--			--><?//else:?>
+<!--				--><?//=$arProperty["DISPLAY_VALUE"];?>
+<!--			--><?//endif?>
+<!--			</small><br />-->
+<!--		--><?//endforeach;?>
 	</p>
 <?endforeach;?>
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>

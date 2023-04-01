@@ -60,18 +60,18 @@ $arComponentParameters = array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "20",
 		),
-        "PAGE_WIDTH" => array(
-            "PARENT" => "BASE",
-            "NAME" => "Ширина картинки анонса",
-            "TYPE" => "STRING",
-            "DEFAULT" => "45",
-        ),
-        "PAGE_HEIGHT" => array(
-            "PARENT" => "BASE",
-            "NAME" => "Высота картинки анонса",
-            "TYPE" => "STRING",
-            "DEFAULT" => "45",
-        ),
+//        "PAGE_WIDTH" => array(
+//            "PARENT" => "BASE",
+//            "NAME" => "Ширина картинки анонса",
+//            "TYPE" => "STRING",
+//            "DEFAULT" => "45",
+//        ),
+//        "PAGE_HEIGHT" => array(
+//            "PARENT" => "BASE",
+//            "NAME" => "Высота картинки анонса",
+//            "TYPE" => "STRING",
+//            "DEFAULT" => "45",
+//        ),
 		"SORT_BY1" => array(
 			"PARENT" => "DATA_SOURCE",
 			"NAME" => GetMessage("T_IBLOCK_DESC_IBORD1"),
