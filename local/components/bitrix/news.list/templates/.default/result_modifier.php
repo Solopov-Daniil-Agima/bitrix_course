@@ -10,6 +10,20 @@ foreach ($arResult['ITEMS'] as $cell=>$arItem){
     }
 }
 
+$cp = $this->__component;
+
+$arUser = [];
+
+foreach ($arResult['ITEMS'] as $cell=>$arItem) {
+    if (!empty($arItem['PROPERTIES']['AUTHOR']['VALUE'])) {
+        array_push($arUser, [$arItem['PROPERTIES']['AUTHOR']['AUTHOR_NAME'], $arItem['PROPERTIES']['AUTHOR']['AUTHOR_LAST_NAME']]);
+    }
+}
+
+$arResult['AUTHORS'] = $arUser;
+$cp->SetResultCacheKeys(array(
+    ("AUTHORS")
+));
 
 //if(!empty($arParams['PAGE_WIDTH']) && !empty($arParams['PAGE_HEIGHT'])){
 //    foreach($arResult["ITEMS"] as $cell=>$arElement)
