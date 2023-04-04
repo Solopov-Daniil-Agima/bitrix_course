@@ -77,6 +77,12 @@ $this->setFrameMode(true);
         <?if(!empty($arItem['DISPLAY_PROPERTIES']['LINK']['DISPLAY_VALUE'])):?>
             <div class="tovar"> Товар: <?=$arItem['DISPLAY_PROPERTIES']['LINK']['DISPLAY_VALUE']?></div>
         <?endif;?>
+        <?if(!empty($arItem['PROPERTY_LINK_PREVIEW_TEXT'])):?>
+            <div class="tovar"> Превью текст: <?=$arItem['PROPERTY_LINK_PREVIEW_TEXT']?></div>
+        <?endif;?>
+        <?if(!empty($arItem['PROPERTY_LINK_PROPERTY_MATERIAL_VALUE'])):?>
+            <div class="tovar"> Материал: <?=$arItem['PROPERTY_LINK_PROPERTY_MATERIAL_VALUE']?></div>
+        <?endif;?>
 <!--		--><?//foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 <!--			<small>-->
 <!--			--><?//=$arProperty["NAME"]?><!--:&nbsp;-->
