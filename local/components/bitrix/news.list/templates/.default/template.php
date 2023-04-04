@@ -83,6 +83,12 @@ $this->setFrameMode(true);
         <?if(!empty($arItem['PROPERTY_LINK_PROPERTY_MATERIAL_VALUE'])):?>
             <div class="tovar"> Материал: <?=$arItem['PROPERTY_LINK_PROPERTY_MATERIAL_VALUE']?></div>
         <?endif;?>
+
+        <div>Проверка работы getlist к связанным элементам</div>
+        <?if(isset($arResult["CAT_ELEM"][$arItem['PROPERTIES']['LINK']['VALUE']])):?>
+                <div>Ссылка на товар: <a href="<?=$arResult["CAT_ELEM"][$arItem['PROPERTIES']['LINK']['VALUE']]["DETAIL_PAGE_URL"]?>"><?=$arResult["CAT_ELEM"][$arItem['PROPERTIES']['LINK']['VALUE']]["NAME"]?></a></div>
+                <div>Цена: <?=$arResult["CAT_ELEM"][$arItem['PROPERTIES']['LINK']['VALUE']]["PROPERTY_PRICE_VALUE"]?></div>
+        <?endif;?>
 <!--		--><?//foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 <!--			<small>-->
 <!--			--><?//=$arProperty["NAME"]?><!--:&nbsp;-->
