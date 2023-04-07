@@ -26,27 +26,39 @@ function dump($elem){
 //    }
 //}
 
-AddEventHandler("main", "OnBeforeEventAdd", array("MyClass", "OnBeforeEventAddHandler"));
+//AddEventHandler("main", "OnBeforeEventAdd", array("MyClass", "OnBeforeEventAddHandler"));
+//class MyClass
+//{
+//    public static function OnBeforeEventAddHandler(&$event, &$lid, &$arFields)
+//    {
+//        if ($event == "FEEDBACK_FORM"){
+//            if(CModule::IncludeModule("iblock")){
+//                $el = new CIBlockElement;
+//                $arLoadProductArray = [
+//                    "IBLOCK_ID" => 5,
+//                    "NAME" => $arFields['AUTHOR'],
+//                    "DETAIL_TEXT" => $arFields['TEXT'],
+//                    "DATE_ACTIVE_FROM" => ConvertTimeStamp(false, "FULL"),
+//                ];
+//                $el->Add($arLoadProductArray);
+//            }
+//        }
+//    }
+//}
+
+AddEventHandler("main", "OnBeforeUserAdd", Array("MyClass", "OnBeforeUserAddHandler"));
+
 class MyClass
 {
-    public static function OnBeforeEventAddHandler(&$event, &$lid, &$arFields)
+    // создаем обработчик события "OnBeforeUserAdd"
+    public static function OnBeforeUserAddHandler(&$arFields)
     {
-        if ($event == "FEEDBACK_FORM"){
-            if(CModule::IncludeModule("iblock")){
-                $el = new CIBlockElement;
-                $arLoadProductArray = [
-                    "IBLOCK_ID" => 5,
-                    "NAME" => $arFields['AUTHOR'],
-                    "DETAIL_TEXT" => $arFields['TEXT'],
-                    "DATE_ACTIVE_FROM" => ConvertTimeStamp(false, "FULL"),
-                ];
-                $el->Add($arLoadProductArray);
-            }
+        if($arFields["LAST_NAME"] == $arFields["NAME"])
+        {
+            global $APPLICATION;
+            $APPLICATION->throwException("Извините, но имя не может совпадать с фамилией.");
+            return false;
         }
-//        dump($event);
-//        dump($lid);
-//        dump($arFields);
-//        die();
     }
 }
 
