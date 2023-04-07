@@ -9,14 +9,15 @@ class CIBlockHandler
     // создаем обработчик события "OnBeforeIBlockElementUpdate"
     public static function OnBeforeIBlockElementUpdateHandler(&$arFields)
     {
-//        echo "<pre>";
-//        var_dump($arFields);
-//        echo "</pre>";
-        $db_props = CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"PRICE"));
-        while($ar_props = $db_props->Fetch()){
-            fwrite(fopen($_SERVER["DOCUMENT_ROOT"]."/local/file.txt","a"),print_r($ar_props,true)."\n");
+        if($arFields['IBLOCK_ID'] == 2){
+            $db_props = CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"PRICE"));
+            if($ar_props = $db_props->Fetch()) {
+                if(strlen($arFields['PROPERTY_VALUES'][$ar_props['ID']][$ar_props['PROPERTY_VALUE_ID']]['VALUE'] > 0)){
+                    $arFields['PROPERTY_VALUES'][$ar_props['ID']][$ar_props['PROPERTY_VALUE_ID']]['VALUE'] =  preg_replace("/[^\d]+/","", $arFields['PROPERTY_VALUES'][$ar_props['ID']][$ar_props['PROPERTY_VALUE_ID']]['VALUE']);
+                }
+            }
         }
-        //fwrite(fopen($_SERVER["DOCUMENT_ROOT"]."/local/file.txt","a"),print_r($arFields,true)."\n");
+
     }
 }
 ?>
